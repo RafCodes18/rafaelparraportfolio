@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rafael Parra | Senior Software Engineer</title>
+  <meta name="description" content="Portfolio website for Rafael Parra, Senior Software Engineer specializing in .NET MVC, SQL Server, Azure, APIs, JavaScript, and full-stack web development." />
+
+  <style>
+    :root {
+      --bg: #0b1020;
+      --bg-soft: #11182c;
+      --card: #151e34;
+      --card-light: #1b2742;
+      --text: #f7f9fc;
+      --muted: #aeb8cc;
+      --accent: #5eead4;
+      --accent-2: #60a5fa;
+      --border: rgba(255, 255, 255, 0.1);
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+      --radius: 18px;
+      --max-width: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(96, 165, 250, 0.18), transparent 35%),
+        radial-gradient(circle at top right, rgba(94, 234, 212, 0.14), transparent 30%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(100% - 32px, var(--max-width));
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(16px);
+      background: rgba(11, 16, 32, 0.82);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .logo {
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      font-size: 1.25rem;
+    }
+
+    .logo span {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .mobile-toggle {
+      display: none;
+      border: 1px solid var(--border);
+      background: var(--card);
+      color: var(--text);
+      padding: 8px 12px;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .hero {
+      padding: 92px 0 72px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--accent);
+      border: 1px solid rgba(94, 234, 212, 0.25);
+      background: rgba(94, 234, 212, 0.08);
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      margin-bottom: 20px;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--accent);
+      border-radius: 50%;
+      box-shadow: 0 0 18px var(--accent);
+    }
+
+    h1 {
+      font-size: clamp(2.7rem, 7vw, 5.4rem);
+      line-height: 0.95;
+      letter-spacing: -0.08em;
+      margin-bottom: 24px;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 1.12rem;
+      max-width: 680px;
+      margin-bottom: 28px;
+    }
+
+    .highlight {
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 13px 18px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      font-weight: 700;
+      transition: 0.2s ease;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #07111f;
+      border: none;
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .hero-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .profile-badge {
+      width: 86px;
+      height: 86px;
+      border-radius: 24px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #07111f;
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .hero-card h2 {
+      font-size: 1.35rem;
+      margin-bottom: 8px;
+    }
+
+    .hero-card p {
+      font-size: 0.98rem;
+      margin-bottom: 20px;
+    }
+
+    .quick-info {
+      display: grid;
+      gap: 12px;
+    }
+
+    .quick-info div {
+      padding: 14px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+    }
+
+    .quick-info strong {
+      display: block;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 2px;
+    }
+
+    section {
+      padding: 72px 0;
+    }
+
+    .section-heading {
+      margin-bottom: 28px;
+    }
+
+    .section-heading span {
+      color: var(--accent);
+      font-weight: 800;
+      font-size: 0.9rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .section-heading h2 {
+      margin-top: 8px;
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.05;
+      letter-spacing: -0.05em;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      max-width: 720px;
+      margin-top: 12px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: rgba(21, 30, 52, 0.8);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      transition: 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(94, 234, 212, 0.3);
+    }
+
+    .card h3 {
+      font-size: 1.15rem;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .skill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .pill {
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text);
+      padding: 8px 11px;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      white-space: nowrap;
+    }
+
+    .project-card {
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+    }
+
+    .project-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 14px;
+    }
+
+    .project-type {
+      color: var(--accent);
+      font-size: 0.85rem;
+      font-weight: 800;
+    }
+
+    .project-links {
+      margin-top: auto;
+      padding-top: 18px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .project-links a {
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 18px;
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-left: 24px;
+      border-left: 2px solid rgba(94, 234, 212, 0.25);
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -7px;
+      top: 4px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    .timeline-item h3 {
+      margin-bottom: 4px;
+    }
+
+    .timeline-meta {
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 0.95rem;
+      margin-bottom: 8px;
+    }
+
+    .timeline-item p {
+      color: var(--muted);
+    }
+
+    .contact-box {
+      background:
+        linear-gradient(135deg, rgba(94, 234, 212, 0.12), rgba(96, 165, 250, 0.12)),
+        var(--card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 36px;
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+
+    .contact-box h2 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      letter-spacing: -0.06em;
+      line-height: 1;
+      margin-bottom: 14px;
+    }
+
+    .contact-box p {
+      color: var(--muted);
+      max-width: 650px;
+      margin: 0 auto 24px;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      padding: 28px 0;
+      text-align: center;
+      font-size: 0.92rem;
+    }
+
+    .toast {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      background: var(--card-light);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 12px 16px;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(12px);
+      transition: 0.2s ease;
+      z-index: 200;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 850px) {
+      .hero-grid,
+      .grid-2,
+      .grid-3 {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 72px;
+        left: 16px;
+        right: 16px;
+        flex-direction: column;
+        align-items: stretch;
+        background: var(--bg-soft);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 16px;
+        display: none;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .mobile-toggle {
+        display: inline-flex;
+      }
+
+      .hero {
+        padding-top: 64px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container nav">
+      <a href="#top" class="logo">Rafael<span>.</span></a>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <button class="mobile-toggle" id="mobileToggle" type="button">Menu</button>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">
+            <span class="status-dot"></span>
+            Available for software engineering opportunities
+          </div>
+
+          <h1>Senior Software Engineer focused on clean, scalable web systems.</h1>
+
+          <p>
+            I’m <span class="highlight">Rafael Parra</span>, a full-stack software engineer specializing in
+            <span class="highlight">.NET MVC, SQL Server, Azure, APIs, JavaScript, and production-ready web applications</span>.
+            I build practical software with strong backend architecture, clean UI, authentication, CRUD workflows,
+            database design, and deployment in mind.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#projects">View Projects</a>
+            <a class="btn btn-secondary" href="mailto:rafaelparradev@gmail.com">Email Me</a>
+            <button class="btn btn-secondary" id="copyEmail" type="button">Copy Email</button>
+          </div>
+        </div>
+
+        <aside class="hero-card">
+          <div class="profile-badge">RP</div>
+          <h2>Rafael Parra</h2>
+          <p>Senior Software Engineer | .NET MVC | SQL Server | Azure</p>
+
+          <div class="quick-info">
+            <div>
+              <strong>Email</strong>
+              rafaelparradev@gmail.com
+            </div>
+            <div>
+              <strong>Location</strong>
+              Wisconsin, United States
+            </div>
+            <div>
+              <strong>Education</strong>
+              B.S. Computer Science, Western Governors University
+            </div>
+            <div>
+              <strong>Focus</strong>
+              Full-stack web apps, APIs, data-driven systems, cloud deployment
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-heading">
+          <span>About</span>
+          <h2>I build full-stack applications from database to deployment.</h2>
+          <p>
+            My work centers around turning real product requirements into functional, maintainable software.
+            I’m comfortable designing SQL Server schemas, building ASP.NET MVC features, wiring authentication,
+            creating API-driven workflows, polishing frontend interactions, and deploying applications to cloud platforms.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <h3>Backend Engineering</h3>
+            <p>
+              ASP.NET MVC, C#, SQL Server, data modeling, CRUD systems, authentication, role-based logic, and API integrations.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Frontend Development</h3>
+            <p>
+              Responsive HTML, CSS, JavaScript, clean UI patterns, user-focused interactions, forms, dashboards, and account flows.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Cloud & Deployment</h3>
+            <p>
+              Azure publishing, domain setup, production configuration, debugging live issues, and improving reliability after launch.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <div class="section-heading">
+          <span>Skills</span>
+          <h2>Technical toolkit</h2>
+          <p>
+            A focused set of tools for building practical web applications, business systems, and cloud-hosted products.
+          </p>
+        </div>
+
+        <div class="grid-2">
+          <div class="card">
+            <h3>Core Technologies</h3>
+            <div class="skill-list">
+              <span class="pill">C#</span>
+              <span class="pill">ASP.NET MVC</span>
+              <span class="pill">.NET</span>
+              <span class="pill">SQL Server</span>
+              <span class="pill">Entity Framework</span>
+              <span class="pill">REST APIs</span>
+              <span class="pill">JavaScript</span>
+              <span class="pill">HTML</span>
+              <span class="pill">CSS</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>Platforms & Workflow</h3>
+            <div class="skill-list">
+              <span class="pill">Azure</span>
+              <span class="pill">Git</span>
+              <span class="pill">GitHub</span>
+              <span class="pill">Visual Studio</span>
+              <span class="pill">Debugging</span>
+              <span class="pill">Cloud Deployment</span>
+              <span class="pill">Database Design</span>
+              <span class="pill">Authentication</span>
+              <span class="pill">Agile Development</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <div class="section-heading">
+          <span>Projects</span>
+          <h2>Featured work</h2>
+          <p>
+            Add your best public projects here. I included professional placeholders based on your actual stack so the site looks complete right away.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <article class="card project-card">
+            <div class="project-top">
+              <div>
+                <p class="project-type">Full-Stack Web App</p>
+                <h3>Production ASP.NET MVC Platform</h3>
+              </div>
+            </div>
+            <p>
+              Built and deployed a custom ASP.NET MVC application with user authentication, account management,
+              SQL Server persistence, CRUD features, analytics tracking, search workflows, profile settings, and responsive UI.
+            </p>
+            <div class="skill-list">
+              <span class="pill">ASP.NET MVC</span>
+              <span class="pill">SQL Server</span>
+              <span class="pill">JavaScript</span>
+              <span class="pill">Azure</span>
+            </div>
+            <div class="project-links">
+              <a href="#" target="_blank">Live Demo</a>
+              <a href="#" target="_blank">Code</a>
+            </div>
+          </article>
+
+          <article class="card project-card">
+            <div class="project-top">
+              <div>
+                <p class="project-type">Portfolio Project</p>
+                <h3>Bug Tracker System</h3>
+              </div>
+            </div>
+            <p>
+              A professional issue-tracking application with projects, tickets, users, priorities, statuses,
+              comments, and role-based access. Designed to demonstrate clean CRUD, relational data, and auth.
+            </p>
+            <div class="skill-list">
+              <span class="pill">C#</span>
+              <span class="pill">MVC</span>
+              <span class="pill">CRUD</span>
+              <span class="pill">Auth</span>
+            </div>
+            <div class="project-links">
+              <a href="#" target="_blank">Live Demo</a>
+              <a href="#" target="_blank">Code</a>
+            </div>
+          </article>
+
+          <article class="card project-card">
+            <div class="project-top">
+              <div>
+                <p class="project-type">API / Data Project</p>
+                <h3>API Dashboard</h3>
+              </div>
+            </div>
+            <p>
+              A dashboard-style application that consumes external APIs, stores selected data in SQL Server,
+              and presents meaningful results through a clean, responsive interface.
+            </p>
+            <div class="skill-list">
+              <span class="pill">APIs</span>
+              <span class="pill">SQL Server</span>
+              <span class="pill">JS</span>
+              <span class="pill">Azure</span>
+            </div>
+            <div class="project-links">
+              <a href="#" target="_blank">Live Demo</a>
+              <a href="#" target="_blank">Code</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="container">
+        <div class="section-heading">
+          <span>Experience</span>
+          <h2>Relevant experience</h2>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <h3>IT Intern — MarketSource</h3>
+            <div class="timeline-meta">Summer 2025</div>
+            <p>
+              Supported IT and software-related workflows in a professional business environment.
+              Gained hands-on experience working with technical systems, troubleshooting, documentation,
+              communication, and practical problem-solving.
+            </p>
+          </div>
+
+          <div class="timeline-item">
+            <h3>Part-Time JavaScript Tutor — Fox Valley Technical College</h3>
+            <div class="timeline-meta">January 2023 — December 2023</div>
+            <p>
+              Helped students understand JavaScript fundamentals, programming logic, debugging,
+              DOM interaction, and web development concepts. Strengthened communication skills by explaining
+              technical topics in a clear, approachable way.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="container">
+        <div class="section-heading">
+          <span>Education</span>
+          <h2>Academic background</h2>
+        </div>
+
+        <div class="grid-2">
+          <div class="card">
+            <h3>Western Governors University</h3>
+            <p><strong>Bachelor of Science — Computer Science</strong></p>
+            <p>January 2024 — May 2026</p>
+            <p>
+              Coursework focused on computer science fundamentals, software engineering,
+              backend development, databases, cloud concepts, algorithms, and systems thinking.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Fox Valley Technical College</h3>
+            <p><strong>Associate of Science — IT: Software Developer</strong></p>
+            <p>Appleton, Wisconsin | January 2022 — December 2023</p>
+            <p>
+              Built a foundation in programming, web development, databases, JavaScript,
+              software development practices, and application design.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="contact-box">
+          <h2>Let’s build something useful.</h2>
+          <p>
+            I’m interested in software engineering roles where I can contribute to real products,
+            solve technical problems, and keep growing as a full-stack developer.
+          </p>
+
+          <div class="hero-actions" style="justify-content: center;">
+            <a class="btn btn-primary" href="mailto:rafaelparradev@gmail.com">rafaelparradev@gmail.com</a>
+            <a class="btn btn-secondary" href="#" target="_blank">LinkedIn</a>
+            <a class="btn btn-secondary" href="#" target="_blank">GitHub</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © <span id="year"></span> Rafael Parra. Built with HTML, CSS, and JavaScript.
+    </div>
+  </footer>
+
+  <div class="toast" id="toast">Email copied to clipboard.</div>
+
+  <script>
+    const mobileToggle = document.getElementById("mobileToggle");
+    const navLinks = document.getElementById("navLinks");
+    const copyEmail = document.getElementById("copyEmail");
+    const toast = document.getElementById("toast");
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    mobileToggle.addEventListener("click", function () {
+      navLinks.classList.toggle("open");
+    });
+
+    navLinks.querySelectorAll("a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        navLinks.classList.remove("open");
+      });
+    });
+
+    copyEmail.addEventListener("click", async function () {
+      const email = "rafaelparradev@gmail.com";
+
+      try {
+        await navigator.clipboard.writeText(email);
+        showToast("Email copied to clipboard.");
+      } catch {
+        showToast("Email: " + email);
+      }
+    });
+
+    function showToast(message) {
+      toast.textContent = message;
+      toast.classList.add("show");
+
+      setTimeout(function () {
+        toast.classList.remove("show");
+      }, 2200);
+    }
+  </script>
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+</body>
+</html>
