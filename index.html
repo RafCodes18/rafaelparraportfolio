@@ -324,6 +324,10 @@
       min-height: 100%;
     }
 
+    .project-card-featured {
+      max-width: 600px;
+    }
+
     .project-top {
       display: flex;
       align-items: flex-start;
@@ -509,7 +513,7 @@
           <h1>.NET Developer focused on clean, scalable web systems.</h1>
 
           <p>
-            I’m <span class="highlight">Rafael Parra</span>, a full-stack software engineer specializing in
+            I'm <span class="highlight">Rafael Parra</span>, a full-stack software engineer specializing in
             <span class="highlight">.NET MVC, SQL Server, Azure, APIs, JavaScript, and production-ready web applications</span>.
             I build practical software with strong backend architecture, clean UI, authentication, CRUD workflows,
             database design, and deployment in mind.
@@ -556,7 +560,7 @@
           <h2>I build full-stack applications from database to deployment.</h2>
           <p>
             My work centers around turning real product requirements into functional, maintainable software.
-            I’m comfortable designing SQL Server schemas, building ASP.NET MVC features, wiring authentication,
+            I'm comfortable designing SQL Server schemas, building ASP.NET MVC features, wiring authentication,
             creating API-driven workflows, polishing frontend interactions, and deploying applications to cloud platforms.
           </p>
         </div>
@@ -636,80 +640,38 @@
           <span>Projects</span>
           <h2>Featured work</h2>
           <p>
-            Add your best public projects here. I included professional placeholders based on your actual stack so the site looks complete right away.
+            A production-deployed application demonstrating full-stack .NET development, cloud infrastructure, and real-world software design.
           </p>
         </div>
 
-        <div class="grid-3">
-          <article class="card project-card">
-            <div class="project-top">
-              <div>
-                <p class="project-type">Full-Stack Web App</p>
-                <h3>Production ASP.NET MVC Platform</h3>
-              </div>
+        <article class="card project-card project-card-featured">
+          <div class="project-top">
+            <div>
+              <p class="project-type">Full-Stack Web App</p>
+              <h3>Bug Tracker</h3>
             </div>
-            <p>
-              Built and deployed a custom ASP.NET MVC application with user authentication, account management,
-              SQL Server persistence, CRUD features, analytics tracking, search workflows, profile settings, and responsive UI.
-            </p>
-            <div class="skill-list">
-              <span class="pill">ASP.NET MVC</span>
-              <span class="pill">SQL Server</span>
-              <span class="pill">JavaScript</span>
-              <span class="pill">Azure</span>
-            </div>
-            <div class="project-links">
-              <a href="#" target="_blank">Live Demo</a>
-              <a href="#" target="_blank">Code</a>
-            </div>
-          </article>
-
-          <article class="card project-card">
-            <div class="project-top">
-              <div>
-                <p class="project-type">Portfolio Project</p>
-                <h3>Bug Tracker System</h3>
-              </div>
-            </div>
-            <p>
-              A professional issue-tracking application with projects, tickets, users, priorities, statuses,
-              comments, and role-based access. Designed to demonstrate clean CRUD, relational data, and auth.
-            </p>
-            <div class="skill-list">
-              <span class="pill">C#</span>
-              <span class="pill">MVC</span>
-              <span class="pill">CRUD</span>
-              <span class="pill">Auth</span>
-            </div>
-            <div class="project-links">
-              <a href="#" target="_blank">Live Demo</a>
-              <a href="#" target="_blank">Code</a>
-            </div>
-          </article>
-
-          <article class="card project-card">
-            <div class="project-top">
-              <div>
-                <p class="project-type">API / Data Project</p>
-                <h3>API Dashboard</h3>
-              </div>
-            </div>
-            <p>
-              A dashboard-style application that consumes external APIs, stores selected data in SQL Server,
-              and presents meaningful results through a clean, responsive interface.
-            </p>
-            <div class="skill-list">
-              <span class="pill">APIs</span>
-              <span class="pill">SQL Server</span>
-              <span class="pill">JS</span>
-              <span class="pill">Azure</span>
-            </div>
-            <div class="project-links">
-              <a href="#" target="_blank">Live Demo</a>
-              <a href="#" target="_blank">Code</a>
-            </div>
-          </article>
-        </div>
+          </div>
+         <p>
+  A professional bug and issue tracking application built with ASP.NET MVC and deployed to Azure.
+  Features user authentication, role-based access control, project and ticket management, priorities,
+  statuses, comments, and full CRUD workflows. The live portfolio demo uses SQLite to keep hosting
+  lightweight, portable, and cost-effective, while still demonstrating relational database design,
+  Entity Framework data access, authentication, and production-style application architecture.
+</p>
+          <div class="skill-list">
+            <span class="pill">ASP.NET MVC</span>
+            <span class="pill">C#</span>
+            <span class="pill">SQL Server</span>
+            <span class="pill">Azure</span>
+            <span class="pill">Authentication</span>
+            <span class="pill">CRUD</span>
+            <span class="pill">Role-Based Access</span>
+          </div>
+          <div class="project-links">
+            <a href="https://bugtrack.rafaelparra.dev" target="_blank">Live Demo →</a>
+            <a href="https://bugtrack.rafaelparra.dev" target="_blank">bugtrack.rafaelparra.dev</a>
+          </div>
+        </article>
       </div>
     </section>
 
@@ -735,8 +697,7 @@
             <h3>Delivery Driver - Amazon</h3>
             <div class="timeline-meta">September 2020 — April 2023</div>
             <p>
-              Promoted to Dispatcher role after strong performance and recognition as Driver
-of the Month.
+              Promoted to Dispatcher role after strong performance and recognition as Driver of the Month.
             </p>
           </div>
         </div>
@@ -755,7 +716,7 @@ of the Month.
             <h3>Western Governors University</h3>
             <p><strong>Bachelor of Science — Computer Science</strong></p>
             <p>January 2024 — Present</p>
-        <p>Expected graduation: July 2026</p>
+            <p>Expected graduation: July 2026</p>
             <p>
               Coursework focused on computer science fundamentals, software engineering,
               backend development, databases, cloud concepts, algorithms, and systems thinking.
@@ -778,9 +739,9 @@ of the Month.
     <section id="contact">
       <div class="container">
         <div class="contact-box">
-          <h2>Let’s build something useful.</h2>
+          <h2>Let's build something useful.</h2>
           <p>
-            I’m interested in software engineering roles where I can contribute to real products,
+            I'm interested in software engineering roles where I can contribute to real products,
             solve technical problems, and keep growing as a full-stack developer.
           </p>
 
@@ -840,43 +801,5 @@ of the Month.
       }, 2200);
     }
   </script>
-<!-- Code injected by live-server -->
-<script>
-	// <![CDATA[  <-- For SVG support
-	if ('WebSocket' in window) {
-		(function () {
-			function refreshCSS() {
-				var sheets = [].slice.call(document.getElementsByTagName("link"));
-				var head = document.getElementsByTagName("head")[0];
-				for (var i = 0; i < sheets.length; ++i) {
-					var elem = sheets[i];
-					var parent = elem.parentElement || head;
-					parent.removeChild(elem);
-					var rel = elem.rel;
-					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
-						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
-						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
-					}
-					parent.appendChild(elem);
-				}
-			}
-			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
-			var address = protocol + window.location.host + window.location.pathname + '/ws';
-			var socket = new WebSocket(address);
-			socket.onmessage = function (msg) {
-				if (msg.data == 'reload') window.location.reload();
-				else if (msg.data == 'refreshcss') refreshCSS();
-			};
-			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
-				console.log('Live reload enabled.');
-				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
-			}
-		})();
-	}
-	else {
-		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
-	}
-	// ]]>
-</script>
 </body>
 </html>
